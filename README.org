@@ -7,7 +7,8 @@ related to the number of transactions.
 * Setting up the environment
 
 If you have [[https://nixos.org/][Nix]] and [[https://direnv.net/][direnv]] installed, you may just run =direnv allow=
-and the entire environment will be setup up for you.
+and the entire environment will be setup up for you without affecting
+your global system.
 
 Otherwise, setup Rust with [[https://rustup.rs/][rustup]].
 
