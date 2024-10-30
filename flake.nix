@@ -26,9 +26,9 @@
           ];
         };
 
-        get-transaction-for-address = pkgs.callPackage ./get-transaction-for-address.nix { inherit naersk; };
+        get-signatures-for-address = pkgs.callPackage ./get-signatures-for-address.nix { inherit naersk; };
         shell = pkgs.mkShell {
-          inputsFrom = [ get-transaction-for-address ];
+          inputsFrom = [ get-signatures-for-address ];
 
           buildInputs = [
             pkgs.sqlx-cli
@@ -36,8 +36,8 @@
         };
       in
       {
-        packages.get-transaction-for-address = get-transaction-for-address;
-        packages.default = get-transaction-for-address;
+        packages.get-signatures-for-address = get-signatures-for-address;
+        packages.default = get-signatures-for-address;
 
         devShells.default = shell;
       }

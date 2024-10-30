@@ -1,5 +1,5 @@
 [package]
-name = "get-transactions-for-address"
+name = "get-signatures-for-address"
 version = "0.1.0"
 edition = "2021"
 
