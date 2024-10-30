@@ -1,0 +1,25 @@
+* About
+
+This is a small Rust program to fetch the total amount of signatures
+associated with a given address. The amount of signatures is directly
+related to the number of transactions.
+
+* Setting up the environment
+
+If you have [[https://nixos.org/][Nix]] and [[https://direnv.net/][direnv]] installed, you may just run =direnv allow=
+and the entire environment will be setup up for you.
+
+Otherwise, setup Rust with [[https://rustup.rs/][rustup]].
+
+* Compiling the system
+
+Just run =cargo build --release= and the system will be built with a
+nice optimization level.
+
+* Running the system
+
+Check the usage of the program with
+
+#+begin_src sh
+  ./target/release/get-signatures-for-address --help
+#+end_src
