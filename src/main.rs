@@ -13,6 +13,7 @@ use solana_sdk::{
 #[derive(Clone, Copy, ValueEnum, Debug)]
 enum Network {
     Mainnet,
+    Devnet,
     Testnet,
 }
 
@@ -20,6 +21,7 @@ impl Network {
     fn to_string(&self) -> String {
         match self {
             Network::Testnet => "https://testnet.dev2.eclipsenetwork.xyz/".to_string(),
+            Network::Devnet => "https://staging-rpc.dev2.eclipsenetwork.xyz".to_string(),
             Network::Mainnet => "https://mainnetbeta-rpc.eclipse.xyz/".to_string(),
         }
     }
