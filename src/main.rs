@@ -31,6 +31,8 @@ impl Network {
 struct Args {
     network: Network,
     pubkey: Pubkey,
+    #[arg(short, long, default_value_t = CommitmentLevel::Finalized)]
+    commitment_level: CommitmentLevel,
 }
 
 #[tokio::main]
@@ -51,7 +53,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
                     until: None,
                     limit: None,
                     commitment: Some(CommitmentConfig {
-                        commitment: CommitmentLevel::Finalized,
+                        commitment: args.commitment_level,
                     }),
                 },
             )
