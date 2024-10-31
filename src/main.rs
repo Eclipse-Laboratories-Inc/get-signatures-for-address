@@ -33,12 +33,14 @@ struct Args {
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
+    pretty_env_logger::init();
+
     let args = Args::parse();
     let client = RpcClient::new(args.network.to_string());
     let mut last = None;
     let mut total = 0;
     loop {
-        println!("Searching before {:?}", last);
+        log::info!("Searching before {:?}", last);
         let signatures = client
             .get_signatures_for_address_with_config(
                 &args.pubkey,
@@ -53,7 +55,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
             )
             .await?;
 
-        println!("Found {}", signatures.len());
+        log::info!("Found {}", signatures.len());
 
         total += signatures.len();
 
