@@ -59,11 +59,12 @@ async fn main() -> Result<(), Box<dyn Error>> {
 
         log::info!("Found {}", signatures.len());
 
-        total += signatures.len();
-
-        if signatures.len() == 0 {
+        if signatures.is_empty() {
+            log::info!("No more signatures found, stopped searching");
             break;
         }
+
+        total += signatures.len();
 
         last = signatures
             .last()
