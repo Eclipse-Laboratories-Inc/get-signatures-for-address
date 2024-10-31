@@ -29,10 +29,6 @@
         get-signatures-for-address = pkgs.callPackage ./get-signatures-for-address.nix { inherit naersk; };
         shell = pkgs.mkShell {
           inputsFrom = [ get-signatures-for-address ];
-
-          buildInputs = [
-            pkgs.sqlx-cli
-          ];
         };
       in
       {
